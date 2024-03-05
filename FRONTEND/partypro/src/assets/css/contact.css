@@ -1,0 +1,82 @@
+.custom-container {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+    background-size: cover;
+    height: 100vh;
+  }
+  
+  .custom-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 550px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }
+  
+  .custom-wrapper .custom-title h1 {
+    color: rgba(9, 24, 23, 0.573);
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  
+  .custom-contact-form {
+    display: flex;
+  }
+  
+  .custom-input-fields {
+    display: flex;
+    flex-direction: column;
+    margin-right: 4%;
+  }
+  
+  .custom-input-fields,
+  .custom-msg {
+    width: 48%;
+  }
+  
+  .custom-input-fields .custom-input,
+  .custom-msg textarea {
+    margin: 10px 0;
+    background: transparent;
+    border: 0px;
+    border-bottom: 2px solid #a9b4b9;
+    padding: 10px;
+    color: rgba(9, 24, 23, 0.573);
+    width: 100%;
+  }
+  
+  .custom-msg textarea {
+    height: 212px;
+  }
+  
+  .custom-btn {
+    background: #000000;
+    text-align: center;
+    padding: 15px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .custom-contact-form {
+      flex-direction: column;
+    }
+    .custom-msg textarea {
+      height: 80px;
+    }
+    .custom-input-fields,
+    .custom-msg {
+      width: 100%;
+    }
+  }
+  

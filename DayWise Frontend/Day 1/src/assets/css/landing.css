@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif; /* Default font */
+}
+
+.landing-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+}
+
+.left-section {
+  flex: 1;
+  padding: 50px;
+}
+
+.right-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-section video {
+  width: 500px;
+  height: 500px;
+}
+
+.title {
+    font-family: "Fredoka", sans-serif;
+    font-weight: 500;
+    font-size: x-large;
+    font-style: normal;
+    margin-bottom: 20px;
+}
+
+h2,
+p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background-color: black; /* Change button background color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #333; /* Darken button background color on hover */
+}
