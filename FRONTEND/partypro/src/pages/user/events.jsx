@@ -69,7 +69,7 @@ export default function Events() {
             </CardActionArea>
             <CardActions>
               {/* Use Link component to navigate to the booking form page */}
-              <Button size="small" color="primary" component={Link} to="/booking">
+              <Button size="small" color="primary" component={Link} to="/venues">
                 Book Now
               </Button>
             </CardActions>

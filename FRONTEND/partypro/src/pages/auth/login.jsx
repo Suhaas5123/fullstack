@@ -7,10 +7,12 @@ import { MdEmail } from 'react-icons/md';
 
 
 
-
 import { useNavigate } from 'react-router-dom';
 import { login } from '../../features/userSlice';
 import { useDispatch } from 'react-redux';
+import UserService from '../../services/UserService';
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   
@@ -25,6 +27,7 @@ const Login = () => {
     return emailRegex.test(email);
   };
   
+  const notifyError = (message) => toast.error(message);
 
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -37,31 +40,52 @@ const Login = () => {
      
         if(email.includes('@admin.com'))
         {
-          const data = {
-            email : email,
-            password : password,
-            role : "Admin"
+          const response = await UserService.LoginUser({
+            email:email,
+            password:password,
+            role:"user"
+          });
+          console.log(response);
+          if(response.data.token === "Invalid Credentials"){
+            notifyError("Enter Valid Credentials");
+            return;
           }
-         
-          // console.log('response',response.data);
-          dispatch(login(data));
-          navigate('/');
+          dispatch(
+            login({
+              email: email,
+              password: password,
+              token:response.data.token,
+              role:"Admin",
+              loggedIn: true
+            })
+          )
           alert("Login SucessFull");
         }
         else{
-          const data = {
-            email : email,
-            password : password,
-            role : "Customer"
+          const response = await UserService.LoginUser({
+            email:email,
+            password:password,
+            role:"user"
+          });
+          console.log(response);
+          if(response.data.token === "Invalid Credentials"){
+            return;
           }
-          console.log(data);
+          dispatch(
+            login({
+              email: email,
+              password: password,
+              token:response.data.token,
+              role:"Customer",
+              loggedIn: true
+            })
+            )
+            
+            navigate('/');
+          }
           
-          // console.log('response',response.data);
-        dispatch(login(data));
-          navigate('/');
-        }
-      
-    }catch(e){
+        }catch(e){
+         notifyError("Enter Valid Credentials");
       console.log(e);
     }
     
@@ -70,6 +94,8 @@ const Login = () => {
   };
 
   return (
+    <>
+      <ToastContainer/>
     <div className="log">
     <div className='login-wrap' >
       <div className='wrapper' >
@@ -108,6 +134,7 @@ const Login = () => {
       </div>
     </div>
     </div>
+    </>
   );
 };
 

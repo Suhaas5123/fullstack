@@ -14,6 +14,7 @@ const LazyAbout=lazy(()=>import('../src/pages/about'));
 const LazyEvents=lazy(()=>import('../src/pages/user/events'));
 const LazyViewEvents=lazy(()=>import('../src/pages/user/viewevents'));
 const LazyCancelEvents=lazy(()=>import('../src/pages/user/cancelevent'));
+const LazyVenues=lazy(()=>import('../src/pages/user/venues'));
 function App() {
     
     return ( <>
@@ -30,6 +31,7 @@ function App() {
                 <Route path="/events" element={<LazyLayout component={LazyEvents} timeout={1000}/>}/>
                 <Route path="/viewevents" element={<LazyLayout component={LazyViewEvents} timeout={1000}/>}/>
                 <Route path="/cancelevent" element={<LazyLayout component={LazyCancelEvents} timeout={1000}/>}/>
+                <Route path="/venues" element={<LazyLayout component={LazyVenues} timeout={1000}/>}/>
                 <Route path="/contact" element={<Contactpage/>}/>
             </Routes>
         </Router>
